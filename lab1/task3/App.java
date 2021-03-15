@@ -13,7 +13,10 @@ public class App implements CSCallBack {
 
     public void click(){
         System.out.println("Button clicked");
+        system.performOnClick(this);
     }
+
+
 
     @Override
     public void OnClick() {

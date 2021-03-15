@@ -17,10 +17,19 @@ public class Task1 {
     public static void foo2(int value) throws NewException {
         // TODO: How to handler exception to get target output?
 
-        NewException newException = new NewException("You got a ??? Exception");
-        foo1(value);
-        System.out.println("foo2 finished!");
-        throw  newException;
+        try{
+            foo1(value);
+        }catch(NewException666 e6){
+            NewException newException = new NewException("You got a 666 Exception");
+            newException.initCause(e6);
+            throw  newException;
+        }catch(NewException999 e9){
+            NewException newException = new NewException("You got a 999 Exception");
+            newException.initCause(e9);/*此方法标注错误的原始异常,initCause(Throwable),打印异常时后面会跟原始异常*/
+            throw  newException;
+        }finally{
+            System.out.println("foo2 finished!");
+        }
 
     }
     public static void foo3(int value){
