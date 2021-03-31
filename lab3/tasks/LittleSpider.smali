@@ -28,8 +28,37 @@
     #     1. the codes in function "main";                #
     #     2. the codes at the beginning of this function. #
     #######################################################
+    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V    
 
-    
+    new-instance v1, Ljava/net/URL;
+    invoke-direct {v1,p0}, Ljava/net/URL;-><init>(Ljava/lang/String;)V    
+
+    invoke-virtual {v1}, Ljava/net/URL;->openStream()Ljava/io/InputStream;
+	move-result-object v1
+
+    new-instance v2, Ljava/io/InputStreamReader;
+    invoke-direct {v2,v1}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)    
+
+    new-instance v1, Ljava/io/BufferedReader;
+    invoke-direct {v1,v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
+
+    const-string v2, ""   #line
+
+    :goto_0
+
+    invoke-virtual {v1}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
+	move-result-object v2           #line
+
+    if-eqz v2,:cond_0
+    invoke-virtual {v0,v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+	move-result-object v0
+    return-object v0
 
 .end method
 
