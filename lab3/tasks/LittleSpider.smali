@@ -38,7 +38,7 @@
 	move-result-object v1
 
     new-instance v2, Ljava/io/InputStreamReader;
-    invoke-direct {v2,v1}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)    
+    invoke-direct {v2,v1}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V    
 
     new-instance v1, Ljava/io/BufferedReader;
     invoke-direct {v1,v2}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
